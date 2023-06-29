@@ -7,23 +7,21 @@ skinparam actor {
 actor User
 actor Admin
 
-rectangle "Text Editor System" {
-  User --> (Create New File)
-  User --> (Open Existing File)
-  User --> (Edit File)
-  User --> (Save File)
-  User --> (Print File)
+rectangle "Automated Testing System" {
+  User --> (Run Tests)
+  User --> (View Test Results)
+  User --> (Generate Reports)
 
-  Admin --> (Manage Users)
-  Admin --> (Manage File Permissions)
+  Admin --> (Manage Test Cases)
+  Admin --> (Manage Test Environments)
 
-  (Manage Users) --> (Add User)
-  (Manage Users) --> (Delete User)
-  (Manage Users) --> (Modify User Details)
+  (Manage Test Cases) --> (Create Test Case)
+  (Manage Test Cases) --> (Update Test Case)
+  (Manage Test Cases) --> (Delete Test Case)
 
-  (Manage File Permissions) --> (Grant Read Access)
-  (Manage File Permissions) --> (Grant Write Access)
-  (Manage File Permissions) --> (Revoke Access)
+  (Manage Test Environments) --> (Add Environment)
+  (Manage Test Environments) --> (Delete Environment)
+  (Manage Test Environments) --> (Modify Environment Settings)
 }
 
 @enduml
