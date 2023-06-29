@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Automated Testing System" as TestingSystem
+participant "Test Database" as Database
+
+User -> TestingSystem: View Test Results
+TestingSystem -> Database: Retrieve Test Results
+Database --> TestingSystem: Test Results
+TestingSystem --> User: Test Results
+@enduml

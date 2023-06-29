@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Automated Testing System" as TestingSystem
+participant "Test Runner" as Runner
+
+User -> TestingSystem: Run Tests
+TestingSystem -> Runner: Execute Tests
+Runner --> TestingSystem: Test Results
+TestingSystem --> User: Test Results
+@enduml

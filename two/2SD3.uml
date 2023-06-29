@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Automated Testing System" as TestingSystem
+participant "Report Generator" as Generator
+
+User -> TestingSystem: Generate Reports
+TestingSystem -> Generator: Generate Reports
+Generator --> TestingSystem: Reports
+TestingSystem --> User: Reports
+@enduml
