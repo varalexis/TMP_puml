@@ -1,0 +1,33 @@
+@startuml
+
+actor User
+participant "Text Editor System" as Editor
+participant "File Manager" as FileManager
+
+User -> Editor: Create New File
+Editor -> FileManager: Check File Permissions
+Editor -> FileManager: Grant Write Access
+FileManager --> Editor: Access Granted
+Editor --> User: File Created
+
+User -> Editor: Open Existing File
+Editor -> FileManager: Check File Permissions
+FileManager --> Editor: Access Granted
+Editor --> User: File Opened
+
+User -> Editor: Edit File
+Editor -> FileManager: Check File Permissions
+FileManager --> Editor: Access Granted
+Editor --> User: File Edited
+
+User -> Editor: Save File
+Editor -> FileManager: Check File Permissions
+FileManager --> Editor: Access Granted
+Editor --> User: File Saved
+
+User -> Editor: Print File
+Editor -> FileManager: Check File Permissions
+FileManager --> Editor: Access Granted
+Editor --> User: File Printed
+
+@enduml

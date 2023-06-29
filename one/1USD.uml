@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+skinparam actor {
+  BackgroundColor LightBlue
+}
+
+actor User
+actor Admin
+
+rectangle "Text Editor System" {
+  User --> (Create New File)
+  User --> (Open Existing File)
+  User --> (Edit File)
+  User --> (Save File)
+  User --> (Print File)
+
+  Admin --> (Manage Users)
+  Admin --> (Manage File Permissions)
+
+  (Manage Users) --> (Add User)
+  (Manage Users) --> (Delete User)
+  (Manage Users) --> (Modify User Details)
+
+  (Manage File Permissions) --> (Grant Read Access)
+  (Manage File Permissions) --> (Grant Write Access)
+  (Manage File Permissions) --> (Revoke Access)
+}
+
+@enduml
