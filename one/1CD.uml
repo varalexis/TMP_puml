@@ -1,0 +1,32 @@
+@startuml
+
+class TextEditor {
+  +CreateNewFile()
+  +OpenExistingFile()
+  +EditFile()
+  +SaveFile()
+  +PrintFile()
+}
+
+class User {
+  +username: String
+  +password: String
+}
+
+class Admin {
+  +username: String
+  +password: String
+}
+
+class FileManager {
+  +CheckFilePermissions(file: File, user: User): Boolean
+  +GrantReadAccess(file: File, user: User)
+  +GrantWriteAccess(file: File, user: User)
+  +RevokeAccess(file: File, user: User)
+}
+
+TextEditor "1" *-- "1..*" User
+TextEditor "1" *-- "1..*" Admin
+TextEditor "1" *-- FileManager
+
+@enduml
