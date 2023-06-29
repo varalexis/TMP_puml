@@ -1,0 +1,19 @@
+@startuml
+node "Tester's Machine" {
+  artifact "Automated Testing System" as ATS
+}
+
+node "Test Server" {
+  artifact "Test Runner" as Runner
+  artifact "Test Database" as Database
+}
+
+node "Report Server" {
+  artifact "Report Generator" as Generator
+}
+
+ATS --> Runner
+ATS --> Database
+ATS --> Generator
+
+@enduml
