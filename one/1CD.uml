@@ -1,11 +1,9 @@
 @startuml
 
-class TextEditor {
-  +CreateNewFile()
-  +OpenExistingFile()
-  +EditFile()
-  +SaveFile()
-  +PrintFile()
+class AutomatedTestingSystem {
+  +RunTests()
+  +ViewTestResults()
+  +GenerateReports()
 }
 
 class User {
@@ -18,15 +16,21 @@ class Admin {
   +password: String
 }
 
-class FileManager {
-  +CheckFilePermissions(file: File, user: User): Boolean
-  +GrantReadAccess(file: File, user: User)
-  +GrantWriteAccess(file: File, user: User)
-  +RevokeAccess(file: File, user: User)
+class TestManager {
+  +CreateTestCase(testCaseData: TestData)
+  +UpdateTestCase(testCaseData: TestData)
+  +DeleteTestCase(testCaseId: String)
 }
 
-TextEditor "1" *-- "1..*" User
-TextEditor "1" *-- "1..*" Admin
-TextEditor "1" *-- FileManager
+class EnvironmentManager {
+  +AddEnvironment(environmentData: EnvironmentData)
+  +DeleteEnvironment(environmentId: String)
+  +ModifyEnvironmentSettings(environmentId: String, settingsData: SettingsData)
+}
+
+AutomatedTestingSystem "1" *-- "1..*" User
+AutomatedTestingSystem "1" *-- "1..*" Admin
+AutomatedTestingSystem "1" *-- TestManager
+AutomatedTestingSystem "1" *-- EnvironmentManager
 
 @enduml
