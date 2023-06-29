@@ -1,33 +1,21 @@
 @startuml
-
 actor User
-participant "Text Editor System" as Editor
-participant "File Manager" as FileManager
+participant "Automated Testing System" as TestingSystem
+participant "Test Manager" as TestManager
+participant "Environment Manager" as EnvManager
 
-User -> Editor: Create New File
-Editor -> FileManager: Check File Permissions
-Editor -> FileManager: Grant Write Access
-FileManager --> Editor: Access Granted
-Editor --> User: File Created
-
-User -> Editor: Open Existing File
-Editor -> FileManager: Check File Permissions
-FileManager --> Editor: Access Granted
-Editor --> User: File Opened
-
-User -> Editor: Edit File
-Editor -> FileManager: Check File Permissions
-FileManager --> Editor: Access Granted
-Editor --> User: File Edited
-
-User -> Editor: Save File
-Editor -> FileManager: Check File Permissions
-FileManager --> Editor: Access Granted
-Editor --> User: File Saved
-
-User -> Editor: Print File
-Editor -> FileManager: Check File Permissions
-FileManager --> Editor: Access Granted
-Editor --> User: File Printed
+User -> TestingSystem: Run Tests
+TestingSystem -> TestManager: Create Test Case
+TestManager --> TestingSystem: Test Case Created
+TestingSystem -> EnvManager: Add Environment
+EnvManager --> TestingSystem: Environment Added
+TestingSystem -> TestManager: Update Test Case
+TestManager --> TestingSystem: Test Case Updated
+TestingSystem -> TestManager: Delete Test Case
+TestManager --> TestingSystem: Test Case Deleted
+TestingSystem -> TestingSystem: Execute Tests
+TestingSystem -> TestingSystem: Collect Test Results
+TestingSystem -> TestingSystem: Generate Reports
+TestingSystem --> User: Reports Generated
 
 @enduml
